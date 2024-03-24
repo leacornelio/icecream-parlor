@@ -1,0 +1,7 @@
+fastapi
+openai
+streamlit
+sqlalchemy
+psycopg2-binary
+mangum
+python-dotenv
