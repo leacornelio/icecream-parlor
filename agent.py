@@ -27,10 +27,10 @@ def process_request(query):
         Identify the type of request from the user and output in JSON format:
         menu retrieval: {'request': 'menu_retrieval'}
         order placement: Extract the flavors and the quantity for each flavor. \
-                         {'request': 'order_placement', 'payload': {"item": "vanilla", "quantity": 2}}
+                         {'request': 'order_placement', 'payload': {"items": [{"item": "vanilla", "quantity": 2}]}}
         inventory retrieval: {'request': 'inventory_retrieval'}
         restocking: Extract the flavors and the quantity for each flavor. \
-                    {'request': 'restocking', 'payload': {"item": "vanilla", "quantity": 50}}
+                    {'request': 'restocking', 'payload': {"items": [{"item": "vanilla", "quantity": 50}]}}
         customer feedback submission: Extract the comment and rating. Default value for comment is '' and 0 for rating. \
                     {'request': 'feedback_submission', 'payload': {"comment": "Great service!", "rating": 5}}
         customer feedback retrieval: {'request': 'feedback_retrieval'}
@@ -62,19 +62,27 @@ def process_request(query):
             results = requests.get(lambda_url+'/inventory', headers=headers).json()
             output = "Inventory\n\n" + "  \n".join([f"{item['item'].title()}: {item['quantity']}" for item in results["items"]])
         elif request['request'] == 'order_placement':
-            inventory = requests.get(lambda_url+'/inventory', headers=headers).json()['items']
-            flavor = request['payload']['item']
-            quantity = request['payload']['quantity']
-            if any(item['item'] == flavor and item['quantity'] >= quantity for item in inventory):
-                requests.post(lambda_url+'/order', json=request['payload'], headers=headers)
-                output = f'Successfully placed order for {quantity} scoop/s of the {flavor.title()} flavor. Thank you!'
-            else:
-                output = f'Sorry. There is not enough stock for the {flavor.title()} flavor.'
+            # Handle multiple items
+            if 'items' not in request['payload'] and type(request['payload']) == dict:
+                request['payload'] = {'items': [request['payload']]}
+            for data in request['payload']['items']:
+                inventory = requests.get(lambda_url+'/inventory', headers=headers).json()['items']
+                flavor = data['item']
+                quantity = data['quantity']
+                if any(item['item'] == flavor and item['quantity'] >= quantity for item in inventory):
+                    requests.post(lambda_url+'/order', json=request['payload'], headers=headers)
+                    output = f'Successfully placed order for {quantity} scoop/s of the {flavor.title()} flavor. Thank you!'
+                else:
+                    output = f'Sorry. There is not enough stock for the {flavor.title()} flavor.'
         elif request['request'] == 'restocking':
-            flavor = request['payload']['item']
-            quantity = request['payload']['quantity']
-            requests.post(lambda_url+'/restock', json=request['payload'], headers=headers).json()
-            output = f'Successfully restocked the {flavor.title()} flavor of quantity {quantity}.'
+            # Handle multiple stock items
+            if 'items' not in request['payload'] and type(request['payload']) == dict:
+                request['payload'] = {'items': [request['payload']]}
+            for data in request['payload']['items']:
+                flavor = data['item']
+                quantity = data['quantity']
+                requests.post(lambda_url+'/restock', json=data, headers=headers).json()
+                output = f'Successfully restocked the {flavor.title()} flavor of quantity {quantity}.'
         elif request['request'] == 'feedback_retrieval':
             results = requests.get(lambda_url+'/feedback', headers=headers).json()
             output = "Customer Feedbacks\n"
