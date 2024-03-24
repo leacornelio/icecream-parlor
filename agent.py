@@ -103,6 +103,7 @@ def process_request(query):
     return output
 
 def main():
+    st.set_page_config(page_title="The Menti Ice Cream Parlor", page_icon="🍦")
     st.title('🍦 The Menti Ice Cream Parlor')
 
     # User query
