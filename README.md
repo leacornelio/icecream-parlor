@@ -3,9 +3,9 @@
 ## Overview
 The Menti Ice Cream Parlor is an interface designed to interact with a custom API, facilitating operations like menu retrieval, order placements, feedback submissions, inventory checks, restocking, and generating customer satisfaction reports. This project leverages AWS RDS for database management and AWS Lambda for API interactions.
 
-**API Docs**: [https://ujs5smnta2icm5oinwcfjdg2hy0rxtsa.lambda-url.ap-southeast-1.on.aws/docs](https://ujs5smnta2icm5oinwcfjdg2hy0rxtsa.lambda-url.ap-southeast-1.on.aws/docs)
-**Streamlit App**: [https://ice-cream-parlor.streamlit.app](https://ice-cream-parlor.streamlit.app)
-**Presentation**: [https://docs.google.com/presentation/d/1aYWSzC6dTUHuGYHPhKJnsNIPutD1Cv2U6faXsg2T610/edit?usp=sharing](https://docs.google.com/presentation/d/1aYWSzC6dTUHuGYHPhKJnsNIPutD1Cv2U6faXsg2T610/edit?usp=sharing)
+- **API Docs**: [https://ujs5smnta2icm5oinwcfjdg2hy0rxtsa.lambda-url.ap-southeast-1.on.aws/docs](https://ujs5smnta2icm5oinwcfjdg2hy0rxtsa.lambda-url.ap-southeast-1.on.aws/docs)
+- **Streamlit App**: [https://ice-cream-parlor.streamlit.app](https://ice-cream-parlor.streamlit.app)
+- **Presentation**: [https://docs.google.com/presentation/d/1aYWSzC6dTUHuGYHPhKJnsNIPutD1Cv2U6faXsg2T610/edit?usp=sharing](https://docs.google.com/presentation/d/1aYWSzC6dTUHuGYHPhKJnsNIPutD1Cv2U6faXsg2T610/edit?usp=sharing)
 
 ## Demo
 ![Demo](demo.gif)
