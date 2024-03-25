@@ -8,10 +8,10 @@ The Menti Ice Cream Parlor is an interface designed to interact with a custom AP
 - **Presentation**: [https://docs.google.com/presentation/d/1aYWSzC6dTUHuGYHPhKJnsNIPutD1Cv2U6faXsg2T610/edit?usp=sharing](https://docs.google.com/presentation/d/1aYWSzC6dTUHuGYHPhKJnsNIPutD1Cv2U6faXsg2T610/edit?usp=sharing)
 
 ## Demo
-![Demo](demo.gif)
+![Demo](demo/demo.gif)
 
 ## Design Rationale
-![Design](design.png)
+![Design](demo/design.png)
 
 - **AWS RDS**: Used for its scalability and flexible schema management, essential for adding new tables.
 - **AWS Lambda**: Selected for its efficiency in handling API calls, auto-scaling, high availability, and a cost-effective model.
