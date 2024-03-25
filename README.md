@@ -6,6 +6,7 @@ The Menti Ice Cream Parlor is an interface designed to interact with a custom AP
 - **API Docs**: [https://ujs5smnta2icm5oinwcfjdg2hy0rxtsa.lambda-url.ap-southeast-1.on.aws/docs](https://ujs5smnta2icm5oinwcfjdg2hy0rxtsa.lambda-url.ap-southeast-1.on.aws/docs)
 - **Streamlit App**: [https://ice-cream-parlor.streamlit.app](https://ice-cream-parlor.streamlit.app)
 - **Presentation**: [https://docs.google.com/presentation/d/1aYWSzC6dTUHuGYHPhKJnsNIPutD1Cv2U6faXsg2T610/edit?usp=sharing](https://docs.google.com/presentation/d/1aYWSzC6dTUHuGYHPhKJnsNIPutD1Cv2U6faXsg2T610/edit?usp=sharing)
+- **Presentation PDF**: [https://github.com/leacornelio/icecream-parlor/blob/main/demo/documentation.pdf](https://github.com/leacornelio/icecream-parlor/blob/main/demo/documentation.pdf)
 
 ## Demo
 ![Demo](demo/demo.gif)
@@ -22,7 +23,7 @@ The Menti Ice Cream Parlor is an interface designed to interact with a custom AP
 ## Set-up Instructions
 ### Creating Tables in AWS RDS
 1. Create an RDS instance on AWS.
-2. Use the following functions in app.py to create inventory, feedback, and report tables:
+2. Use the following functions in [app.py](https://github.com/leacornelio/icecream-parlor/blob/main/app.py) to create inventory, feedback, and report tables:
     - `create_inventory_table()`
     - `create_feedback_table()`
     - `create_report_table()`
@@ -66,7 +67,7 @@ The Menti Ice Cream Parlor is an interface designed to interact with a custom AP
 - Recognize user request type - can accept multiple items when ordering and restocking
 - Extract necessary data (items, quantities, comments, feedbacks, ratings). 
 - Send data as payload to the correct API endpoints.
-- Can be found in `agent.py`
+- Can be found in [agent.py](https://github.com/leacornelio/icecream-parlor/blob/main/agent.py)
 
 ## Streamlit app
 **Streamlit App**: [https://ice-cream-parlor.streamlit.app](https://ice-cream-parlor.streamlit.app)
