@@ -53,7 +53,7 @@ The Menti Ice Cream Parlor is an interface designed to interact with a custom AP
 - Create a Lambda function with container image
 
 ## Sample curl Commands
-- **Ordering**: `curl -X POST [API_ENDPOINT]/order -H "Content-Type: application/json" -H "Authorization: Bearer <c>" -d '{"item": "vanilla", "quantity": 2}'`
+- **Ordering**: `curl -X POST [API_ENDPOINT]/order -H "Content-Type: application/json" -H "Authorization: Bearer <BEARER_TOKEN>" -d '{"item": "vanilla", "quantity": 2}'`
 - **Restocking**: [Similar command with /restock endpoint]
 - **Submitting Feedback**: [Similar command with /feedback endpoint]
 - **Submitting a Report**: [Similar command with /report endpoint]
